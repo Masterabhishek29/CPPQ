@@ -33,8 +33,13 @@ std::shared_ptr<cppq::Task> NewImageResizeTask(ImageResizePayload payload) {
 }
 
 void HandleEmailDeliveryTask(std::shared_ptr<cppq::Task> task) {
+  // Fetch the parameters
   int userID = task->payload["UserID"];
   std::string templateID = task->payload["TemplateID"];
+
+  // Send the email...
+
+  // Return a result
   nlohmann::json r;
   r["UserIDMultiplied"] = userID * 2;
   r["Sent"] = true;
@@ -43,6 +48,7 @@ void HandleEmailDeliveryTask(std::shared_ptr<cppq::Task> task) {
 }
 
 void HandleImageResizeTask(std::shared_ptr<cppq::Task> task) {
+ // Handle the task here...
   return;
 }
 
